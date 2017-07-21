@@ -68,6 +68,7 @@ public class Game {
                 printOut.printMessage(FIRST_MESSAGE);
             }
         }
+        
         printOut.printFinalMessage(service.countTry, service.countMistake,
                 service.countError, service.getPreviousNumbers());
     }
