@@ -2,6 +2,9 @@ package danish.ex2.view;
 
 import java.util.List;
 
+import static danish.ex2.model.Service.RAND_MAX_NOW;
+import static danish.ex2.model.Service.RAND_MIN_NOW;
+
 /**
  * Created by denystymoshkevych on 7/21/17.
  */
@@ -9,8 +12,8 @@ public class PrintOut {
 
     public static final String FIRST_MESSAGE = "Please, guess a number from 0 to 100";
     public static final String SUCCESS_MESSAGE = "Congratulation, You are Winner";
-    public static final String UP_NUMBER_MESSAGE = "Enter a larger number";
-    public static final String DOWN_NUMBER_MESSAGE = "Enter a smaller number";
+    public static final String UP_NUMBER_MESSAGE = "Enter a larger number from ";
+    public static final String DOWN_NUMBER_MESSAGE = "Enter a smaller number from ";
     public static final String COUNT_MISTAKE = "Mistake : ";
     public static final String COUNT_TRY = "All try : ";
     public static final String COUNT_ERROR = "Error : ";

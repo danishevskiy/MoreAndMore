@@ -7,6 +7,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static danish.ex2.model.Service.RAND_MAX_NOW;
+import static danish.ex2.model.Service.RAND_MIN_NOW;
 import static danish.ex2.view.PrintOut.*;
 
 /**
@@ -34,6 +36,8 @@ public class Game {
         service = new Service();
         printOut = new PrintOut();
 
+        String privius = null;
+
         int point = -1;
         int update = 0;
 
@@ -48,24 +52,26 @@ public class Game {
             try{
                 update = Integer.parseInt(br.readLine());
 
-                if (update > 100 || update < 0) {
+                if (update > Service.RAND_MAX_NOW || update < Service.RAND_MIN_NOW) {
                     service.countError++;
-                    printOut.printMessage(FIRST_MESSAGE);
+                    printOut.printMessage(privius);
                 } else {
                     point = service.moreBOrSNumber(update);
 
                     if (point == 1) {
                         service.countMistake++;
-                        printOut.printMessage(UP_NUMBER_MESSAGE);
+                        privius = UP_NUMBER_MESSAGE + RAND_MIN_NOW + " to " + RAND_MAX_NOW;
+                        printOut.printMessage(privius);
                     }
                     if (point == -1) {
                         service.countMistake++;
-                        printOut.printMessage(DOWN_NUMBER_MESSAGE);
+                        privius = DOWN_NUMBER_MESSAGE + + RAND_MIN_NOW + " to " + RAND_MAX_NOW;
+                        printOut.printMessage(privius);
                     }
                 }
             }catch (NumberFormatException e){
                 service.countError++;
-                printOut.printMessage(FIRST_MESSAGE);
+                printOut.printMessage(COUNT_MISTAKE + privius);
             }
         }
         

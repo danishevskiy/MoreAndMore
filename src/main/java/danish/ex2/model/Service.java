@@ -10,6 +10,10 @@ import java.util.Random;
 public class Service {
 
     private static final int RAND_MAX = 100;
+    private static final int RAND_MIN = 0;
+
+    public static int RAND_MAX_NOW = 100;
+    public static int RAND_MIN_NOW = 0;
 
     public static int countError = 0;
     public static int countMistake = 0;
@@ -35,11 +39,15 @@ public class Service {
         if(c == RAND_NOW)
             return 0;
 
-        if(c > RAND_NOW)
+        if(c > RAND_NOW){
+            RAND_MAX_NOW = c;
             return -1;
+        }
 
-        if(c < RAND_NOW)
+        if(c < RAND_NOW){
+            RAND_MIN_NOW = c;
             return 1;
+        }
 
         return -2;
     }
